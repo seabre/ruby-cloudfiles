@@ -446,7 +446,7 @@ public
     conn = http_conn[1]
     
 
-    parsed.path += "/#{quote(container)}/#{quote(name)}"
+    parsed.path += "/#{quote(container)}/#{name}"
     conn.start if not conn.started?
     headers = {'x-auth-token' => token}
     if block_given?
@@ -485,7 +485,7 @@ public
     conn = http_conn[1]
     
 
-    parsed.path += "/#{quote(container)}/#{quote(name)}"
+    parsed.path += "/#{quote(container)}/#{name}"
     conn.start if not conn.started?
     resp = conn.head(parsed.request_uri, {'x-auth-token' => token})
     if resp.code.to_i < 200 or resp.code.to_i > 300
